@@ -1,0 +1,101 @@
+html body {
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+html{
+    background-color: black;
+}
+body{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    border: 1px solid black;
+    background-color: white;
+}
+header{
+    width: 100%;
+    height: 10%;
+    position: relative;
+}
+
+
+header #profilePic img{
+    border-radius: 100%;
+    width: 20%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin: 50px 50px;
+}
+#name{
+    float: left;
+    margin: 50px 50px;
+}
+#name .name{
+    font-weight: 700;
+    font-size: 25px;
+}
+#name .workplace{
+    font-size: 20px;
+    font-weight: 500;
+}
+#address{
+    display: inline-block;
+    float:left;
+    margin: 50px 50px;
+}
+
+.clear{
+    clear: both;
+}
+
+hr {
+    position: relative;
+    border: 1px solid orange;
+    display: block;
+    margin: 20px 0;
+    padding:0;
+}
+
+#mainArea{
+    padding: 10px 50px;
+}
+
+#mainArea section .title{
+    float: left;
+    width: 40%;
+}
+
+#mainArea section .title h1{
+    font-size: 20px;
+    color: #cf8a05;
+    font-style: italic;
+}
+
+#mainArea .content{
+    float: left;
+    width: 60%;
+}
+
+#mainArea hr{
+    display: block;
+    height: 1px;
+    border: 0;
+    color: rgb(194, 194, 194);
+    background-color: rgb(194, 194, 194);
+}
+
+#mainArea .content h2{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left:2px;
+}
+
+#mainArea .content h3{
+    font-size: 15px;
+    font-style: italic;
+    padding-bottom: 10px;
+}

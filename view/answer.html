@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quyết đê</title>
+</head>
+<body>
+    <h1 id = "content">Nội dung câu hỏi</h1>
+    <button id ="yes" class="btn-answer" data-questionid="">Đúng/Có/Phải</button>
+    <button id="no" class="btn-answer" data-questionid="">Sai/Không/Trái</button>
+    <button>Xem câu hỏi khác</button>
+    <button class="btn-show" data-questionid="">Xem kết quả</button>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+     crossorigin="anonymous"></script>
+     <script>
+         $(".btn-show").click(function(){
+            const questionId = $(".btn-show").attr("data-questionid");
+            $.ajax({
+                url: "/question/" + questionId,
+                type: "GET",
+                success: function(){
+                    window.location.href = "/question/" + questionId;
+                },
+                error: function(err){
+                    console.log("Error!" + err);
+                }
+            })
+         })
+         $(".btn-answer").click(function(){
+             const questionId = $(".btn-answer").attr("data-questionid");
+             const vote = $(this).attr("id");
+             $.ajax({
+                 url: "/vote/" + questionId + "/" + vote,
+                 type: "GET",
+                 success: function(data){
+                     window.location.href = "/question/" + questionId;
+                 },
+                 error: function(err){
+                     console.log("Error!!!", err);
+                 }
+             })
+         });
+         console.log(window.location);
+         $.ajax({
+             url: "http://localhost:6969/api/random",
+             type: "GET",
+             success: function(data){
+                 console.log(data.question);
+                 $("#content").text(data.question.content);
+                 $(".btn-answer").attr("data-questionid", data.question.id);
+                 $(".btn-show").attr("data-questionid", data.question.id);
+             },
+             error: function(err){
+                 console.log("Error!!", err)
+             }
+         })
+     </script>
+</body>
+</html>
